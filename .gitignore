@@ -1,2 +1,3 @@
 /logs/*
+/public/upload/image/*
 /node_modules
