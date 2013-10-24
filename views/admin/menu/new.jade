@@ -1,0 +1,25 @@
+extends layout
+
+block main
+  .panel.panel-default
+    .panel-heading
+      h3.panel-title 新建导航
+    .panel-body
+      form.form-horizontal(id="new_menu" action="/admin/menu/create" method="post")
+        .form-group
+          label.col-sm-2.control-label(for="name") 名称
+          .col-sm-10
+            input.form-control(type="text" id="name" name="name" placeholder="请输入名称")
+        .form-group
+          label.col-sm-2.control-label(for="link") 链接
+          .col-sm-10
+            input.form-control(type="text" id="link" name="link" placeholder="请输入链接") 
+        .form-group
+          label.col-sm-2.control-label(for="position") 位置
+          .col-sm-10
+            select.form-control(id="position" name="position")
+              option(value="top") 头部导航     
+              option(value="foot") 页脚导航
+        .form-group
+          .col-sm-offset-2.col-sm-10
+            button.btn.btn-default(type="submit") 保存            

@@ -1,0 +1,25 @@
+extends layout
+
+block main
+  .panel.panel-default
+    .panel-heading.clearfix
+      h3.panel-title 导航列表
+        
+    .panel-body.clearfix
+      a.btn.btn-primary.btn-sm.pull-right(href="/admin/menu/new") 新建导航
+      table.table.table-hover
+        thead
+          tr
+            th.col 名称
+            th 链接
+            th 位置
+            th 更新时间
+        tbody    
+          - each menu in menus
+            tr
+              td= menu.name
+              td= menu.link
+              td #{menu.position == 'top' ? '头部导航' : '页脚导航'}
+              td= formatDatetime(menu.updated_at)            
+      .pull-right
+        !{createPagination(total, 15)}  

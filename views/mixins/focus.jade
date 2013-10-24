@@ -1,0 +1,17 @@
+mixin carousel(images)
+  .carousel.slide#home-carousel(data-ride="carousel")
+    ol.carousel-indicators
+      li.active(data-target="#home-carousel" data-slide-to="0")
+      li(data-target="#home-carousel" data-slide-to="1")
+      li(data-target="#home-carousel" data-slide-to="2")
+    .carousel-inner
+      .item.active 
+        img.img-responsive(data-src="holder.js/850x300/auto/#777:#555/text:1 slide")
+      .item 
+        img.img-responsive(data-src="holder.js/850x300/auto/#777:#555/text:2 slide") 
+      .item 
+        img.img-responsive(data-src="holder.js/850x300/auto/#777:#555/text:3 slide")   
+    a.left.carousel-control(href="#home-carousel" data-slide="prev")
+      span.glyphicon.glyphicon-chevron-left
+    a.right.carousel-control(href="#home-carousel" data-slide="next")
+      span.glyphicon.glyphicon-chevron-right    

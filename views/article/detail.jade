@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+  .panel.panel-default
+    -//.panel-heading xx
+    .panel-body
+      h3.text-center= article.title 
+      ul.list-inline.text-center 
+        li
+          |更新时间：
+          = formatDate(article.updated_at)
+      !{article.content}

@@ -1,0 +1,23 @@
+doctype 5
+html
+  head
+    title 华盛行
+    include ../head
+    link(rel='stylesheet', href='/stylesheets/signin.css')
+  body
+    .container         
+      form.form-signin(action="/signin" method="post")
+        h2.form-signin-heading
+          |系统登录
+        input.form-control(type="text" name="name" placeholder="用户名" autofocus)
+        input.form-control(type="password" name="pass" placeholder="密码")
+        label.checkbox
+          input(type="checkbox" name="rememberme" value="1") 
+          |自动登录
+        - if(locals.error)
+          .alert.alert-danger.alert-dismissable
+            button.close(type="button" data-dismiss="alert" aria-hidden="true")
+              &times;
+            strong #{error}  
+        button.btn.btn-lg.btn-primary.btn-block(type="submit") 
+          |登录 

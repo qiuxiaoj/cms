@@ -1,0 +1,25 @@
+extends layout
+
+block main
+  .panel.panel-default
+    .panel-heading.clearfix
+      h3.panel-title #{article_cat.cat_name} - 列表
+        
+    .panel-body.clearfix
+      a.btn.btn-primary.btn-sm.pull-right(href="/admin/cat/#{article_cat._id}/new") 新建文章
+      table.table.table-hover
+        thead
+          tr
+            th.col 标题
+            th 分类
+            -//th 顺序
+            th 更新时间
+        tbody    
+          - each art in articles
+            tr
+              td= art.title
+              td= article_cat.cat_name
+              -//td= art.sort
+              td= formatDatetime(art.updated_at)            
+      .pull-right
+        !{createPagination(total, 15)}       

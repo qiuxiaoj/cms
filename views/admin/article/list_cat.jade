@@ -1,0 +1,23 @@
+extends layout
+
+block main
+  .panel.panel-default
+    .panel-heading
+      h3.panel-title 分类列表
+    .panel-body
+      a.btn.btn-primary.btn-sm.pull-right(href="/admin/art_cat/new") 新增分类
+      table.table.table-hover
+        thead
+          tr
+            th 分类名
+            -//th 上级分类
+            -//th 顺序
+            th 更新时间
+        tbody    
+          - each cat in article_cats
+            tr
+              td
+                a(href="/admin/cat/#{cat._id}/list") #{cat.cat_name}
+              -//td #{cat.parent_id == 'root' ? '无' : cat.parent_id}
+              -//td= cat.sort
+              td= formatDatetime(cat.updated_at)     
