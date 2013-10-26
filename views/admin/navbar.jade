@@ -6,17 +6,17 @@
         span.icon-bar
         span.icon-bar
       a.navbar-brand(href="#") 
-        span.glyphicon.glyphicon-globe
+        i.glyphicon.glyphicon-globe
         |后台管理系统
     .navbar-collapse.collapse   
       ul.nav.navbar-nav
         li.active
-          a(href="/") 
-            span.glyphicon.glyphicon-home   
+          a(href="/admin/index") 
+            i.glyphicon.glyphicon-home   
             |首页
         li
           a(href="/admin/user/list") 
-            span.glyphicon.glyphicon-user 
+            i.glyphicon.glyphicon-user 
             |用户管理 
         li.dropdown 
           a.dropdown-toggle(href="#" data-toggle="dropdown")
@@ -30,14 +30,22 @@
               a(href="/admin/art/new") 内容发布
         li
           a(href="/admin/menu/list") 
-            span.glyphicon.glyphicon-hand-right  
+            i.glyphicon.glyphicon-hand-right  
             |导航管理
+        li
+          a(href="/admin/ad/list") 
+            i.fa.fa-picture-o 
+            |广告管理    
       ul.nav.navbar-nav.navbar-right 
         li
           a 
-            span.glyphicon.glyphicon-cog
+            i.glyphicon.glyphicon-cog
             |#{current_user.name}
         li
           a(href="/signout") 
-            span.glyphicon.glyphicon-log-out
-            注销                
+            i.glyphicon.glyphicon-log-out
+            注销
+        li
+          a(href="/") 
+            i.fa.fa-reply
+            返回网站                     

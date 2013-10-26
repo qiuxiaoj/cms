@@ -11,7 +11,15 @@ exports.list = function (cat_id, callback) {
 
 exports.paginate = function(cat_id, page, limit, callback){
   Article.find({cat_id: cat_id}, [], {sort: [['updated_at', 'desc']]}).paginate(page, limit, callback);
-} 
+};
+
+exports.update = function(art_id, title, content, image_url, cat_id, callback){
+  Article.update({_id: art_id}, {title: title, content: content, image_url: image_url, cat_id: cat_id, updated_at: new Date()}, callback);
+}; 
+
+exports.remove = function(art_id, callback){
+  Article.remove({_id: art_id}, callback);
+}; 
 
 exports.newAndSave = function (title, content, image_url, cat_id, callback) {
   var art = new Article();

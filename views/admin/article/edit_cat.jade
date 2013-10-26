@@ -1,0 +1,16 @@
+extends layout
+
+block main
+  .panel.panel-default
+    .panel-heading
+      h3.panel-title 编辑分类
+    .panel-body
+      form.form-horizontal(action="/admin/art_cat/update" method="post")
+        .form-group
+          label.col-sm-2.control-label(for="cat_name") 分类名
+          .col-sm-10
+            input(type="hidden" name="cat_id" value="#{cate._id}")
+            input.form-control(type="text" id="cat_name" name="cat_name" value="#{cate ? cate.cat_name : ''}" placeholder="请输入分类名")
+        .form-group
+          .col-sm-offset-2.col-sm-10
+            button.btn.btn-default(type="submit") 保存   

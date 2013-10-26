@@ -4,6 +4,7 @@
  */
 
 var express = require('express')
+  , less = require('less-middleware')
   , routes = require('./routes')
   , http = require('http')
   , path = require('path')
@@ -33,6 +34,13 @@ app.use(express.session({
 app.use(helpers.helpers('广发行'));
 app.use(require('./controllers/sign').auth_user);
 app.use(app.router);
+app.use(less({
+  dest: __dirname + '/public/stylesheets',
+  src: __dirname + '/assets/less',
+  prefix: '/stylesheets',
+  paths  : [path.join(__dirname, 'assets', 'less')],
+  compress: true
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function (err, req, res, next) {

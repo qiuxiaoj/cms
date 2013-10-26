@@ -9,7 +9,7 @@ exports.index = function (req, res, next) {
   var proxy = EventProxy.create('news', 'new_products', 'hot_products', render);
   proxy.fail(next);
 
-  Article.paginate('525ab43127723bf64a000002', 1, 11, proxy.done(function(docs, total, err){
+  Article.paginate('525ab43127723bf64a000002', 1, 10, proxy.done(function(docs, total, err){
     if (err) {
       return next(err);
     }

@@ -23,6 +23,7 @@ exports.helpers = function(name) {
     res.locals.formatDatetime = formatDatetime;
     res.locals.stripScript = stripScript;
     res.locals.createPagination = createPagination(req);
+    res.locals.text_cut = text_cut;
 
     if (typeof req.flash !== 'undefined') {
       res.locals.info = req.flash('info')
@@ -74,6 +75,9 @@ exports.helpers = function(name) {
 
 function createPagination (req) {
   return function createPagination (total, pagesize) {
+    if (total == 0){
+      return '';
+    }
     var params = qs.parse(url.parse(req.url).query)
     var current_page = parseInt(params.page, 10) || 1;
     var pv = pagination.build(total, current_page, pagesize, 2, 6);
@@ -136,6 +140,31 @@ function formatDate (date) {
 
 function formatDatetime (date) {
   return utils.DateFormat(date, 'YYYY-MM-DD HH:mm:ss');
+};
+
+function text_cut(str, num){
+  if (!str) {
+    return str;
+  }
+  var sl = str.length;
+  if (sl <= num) {
+    return str;
+  }
+  var maxCount = num * 2;
+  var count = 0;
+  var i = 0;
+  while (count < maxCount && i < sl) {
+    if (str.charCodeAt(i) < 256 && str.charCodeAt(i) > -1) {
+      count++;
+    } else {
+      count += 2;
+    }
+    i++;
+  }
+  if (count > maxCount) {
+    i--;
+  }
+  return str.substring(0, i);
 };
 
 /**

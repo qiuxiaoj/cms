@@ -5,7 +5,9 @@ block main
     .panel-heading
       h3.panel-title 分类列表
     .panel-body
-      a.btn.btn-primary.btn-sm.pull-right(href="/admin/art_cat/new") 新增分类
+      a.btn.btn-primary.btn-sm.pull-right(href="/admin/art_cat/new") 
+        i.fa.fa-plus
+        |新增分类
       table.table.table-hover
         thead
           tr
@@ -13,6 +15,7 @@ block main
             -//th 上级分类
             -//th 顺序
             th 更新时间
+            th #
         tbody    
           - each cat in article_cats
             tr
@@ -20,4 +23,12 @@ block main
                 a(href="/admin/cat/#{cat._id}/list") #{cat.cat_name}
               -//td #{cat.parent_id == 'root' ? '无' : cat.parent_id}
               -//td= cat.sort
-              td= formatDatetime(cat.updated_at)     
+              td= formatDatetime(cat.updated_at) 
+              td
+                a.btn.btn-sm.btn-success(href="/admin/art_cat/#{cat._id}/edit") 
+                  i.fa.fa-edit  
+                  |编辑
+                a.btn.btn-sm.btn-warning.margin-sm(href="/admin/art_cat/#{cat._id}/delete") 
+                  i.fa.fa-trash-o  
+                  |删除  
+                  

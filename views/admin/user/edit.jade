@@ -1,0 +1,35 @@
+extends layout
+
+block main
+  .panel.panel-default
+    .panel-heading
+      h3.panel-title 编辑用户
+    .panel-body
+      form.form-horizontal(id="new_menu" action="/admin/user/update" method="post")
+        input(type="hidden" name="user_id" value="#{user._id}")
+        .form-group
+          label.col-sm-2.control-label(for="name") 用户名
+          .col-sm-10
+            input.form-control(type="text" id="name" name="name" value="#{user.name}" placeholder="请输入用户名")
+        .form-group
+          label.col-sm-2.control-label(for="loginname") 登录名
+          .col-sm-10
+            input.form-control(type="text" id="loginname" name="loginname" value="#{user.loginname}" placeholder="请输入登录名") 
+        .form-group
+          label.col-sm-2.control-label(for="pass") 密码
+          .col-sm-10
+            input.form-control(type="text" id="pass" name="pass" value="00000000" placeholder="请输入密码")
+        .form-group
+          label.col-sm-2.control-label(for="email") 邮箱
+          .col-sm-10
+            input.form-control(type="text" id="email" name="email" value="#{user.email}" placeholder="请输入邮箱")          
+        .form-group
+          label.col-sm-2.control-label(for="is_admin") 管理员？
+          .col-sm-10
+            - if(user.is_admin)
+              input(type="checkbox" id="is_admin" name="is_admin" checked)
+            - else
+              input(type="checkbox" id="is_admin" name="is_admin")  
+        .form-group
+          .col-sm-offset-2.col-sm-10
+            button.btn.btn-default(type="submit") 保存            

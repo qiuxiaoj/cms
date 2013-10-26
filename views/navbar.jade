@@ -1,4 +1,3 @@
--//h3.text-muted 华盛行
 h3
   img.img-rounded(src="/images/logo.png" alt="华盛行")
 .navbar.navbar-default
@@ -11,9 +10,6 @@ h3
     ul.nav.navbar-nav      
       li.active 
         a(href="/") 首页
-      li
-        a(href="#") LV 
-      li
-        a(href="#") Gucci 
-      li
-        a(href="#") Chanel 
+      -each menu in top_menu 
+        li
+          a(href="#{menu.link}") #{menu.name}   

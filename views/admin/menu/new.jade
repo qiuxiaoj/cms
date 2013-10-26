@@ -18,8 +18,8 @@ block main
           label.col-sm-2.control-label(for="position") 位置
           .col-sm-10
             select.form-control(id="position" name="position")
-              option(value="top") 头部导航     
-              option(value="foot") 页脚导航
+              - each m in [{key: 'top', value: '头部导航'}, {key: 'foot', value: '页脚导航'}] 
+                option(value="#{m.key}")= m.value
         .form-group
           .col-sm-offset-2.col-sm-10
             button.btn.btn-default(type="submit") 保存            

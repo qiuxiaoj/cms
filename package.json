@@ -16,6 +16,7 @@
     "markdown":"*",
     "mongoose-pagination": "*",
     "node-pagination": "*",
-    "moment": "*"
+    "moment": "*",
+    "less-middleware": "*"
   }
 }

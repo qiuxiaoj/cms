@@ -5,7 +5,8 @@ block content
   .row
     .col-sm-3
       .panel.panel-default
-        .panel-heading 
+        .panel-heading
+          i.fa.fa-volume-up.margin-right-sm.text-red 
           |最新动态
           .pull-right
             |更多
@@ -13,9 +14,10 @@ block content
           ul.list-unstyled
             - each art in news
               li
-                a(href="/article/#{art._id}") #{art.title} 
+                i.fa.fa-caret-right.margin-right-sm
+                a(href="/article/#{art._id}") #{text_cut(art.title, 14)} 
     .col-sm-9
-      +carousel()     
+      +carousel(advs)     
   .panel.panel-default.clearfix
     .panel-heading 
       |特价商品

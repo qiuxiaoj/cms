@@ -6,20 +6,28 @@ block main
       h3.panel-title #{article_cat.cat_name} - 列表
         
     .panel-body.clearfix
-      a.btn.btn-primary.btn-sm.pull-right(href="/admin/cat/#{article_cat._id}/new") 新建文章
+      a.btn.btn-primary.btn-sm.pull-right(href="/admin/cat/#{article_cat._id}/new") 
+        i.fa.fa-plus
+        |新建文章
       table.table.table-hover
         thead
           tr
             th.col 标题
-            th 分类
-            -//th 顺序
-            th 更新时间
+            th.col 分类
+            th.col 更新时间
+            th.col #
         tbody    
           - each art in articles
             tr
               td= art.title
               td= article_cat.cat_name
-              -//td= art.sort
-              td= formatDatetime(art.updated_at)            
+              td= formatDatetime(art.updated_at)
+              td 
+                a.btn.btn-sm.btn-success(href="/admin/art/#{art._id}/edit") 
+                  i.fa.fa-edit  
+                  |编辑
+                a.btn.btn-sm.btn-warning.margin-sm(href="/admin/art/#{art.cat_id}/#{art._id}/delete") 
+                  i.fa.fa-trash-o  
+                  |删除              
       .pull-right
         !{createPagination(total, 15)}       

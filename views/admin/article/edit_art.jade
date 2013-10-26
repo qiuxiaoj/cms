@@ -1,0 +1,90 @@
+extends layout
+
+block head
+  include ../../fileupload
+  include ../../kindeditor
+
+block main
+  .panel.panel-default
+    .panel-heading
+      h3.panel-title 新建文章
+    .panel-body
+      form.form-horizontal(id="new_article" action="/admin/art/update" method="post")
+        input(type="hidden" name="art_id" value="#{article.id}")
+        .form-group
+          label.col-sm-2.control-label(for="title") 标题
+          .col-sm-10
+            input.form-control(type="text" id="title" name="title" value="#{article.title}" placeholder="请输入标题")
+        .form-group
+          label.col-sm-2.control-label(for="cat_id") 分类
+          .col-sm-10
+            select.form-control(id="cat_id" name="cat_id")
+              - each cates in cate_list
+                - if (article.cat_id == cates._id)
+                  option(value="#{cates._id}" selected)= cates.cat_name
+                - else  
+                  option(value="#{cates._id}")= cates.cat_name  
+        .form-group
+          label.col-sm-2.control-label(for="image_url") 图片
+          .col-sm-3
+            span#image-show
+              - if(article.image_url != '')
+                img(src="#{article.image_url}" class="img-thumbnail img-responsive")
+              - else
+                img(data-src="holder.js/200x200" src="data:image/png;base64," class="img-thumbnail img-responsive")
+            input(type="hidden" id="image_url" name="image_url" value="#{article.image_url}")
+          .col-sm-7
+            span.fileinput-button.btn.btn-primary
+              i.glyphicon.glyphicon-upload
+              |文件上传
+              input(type="file" name="imgFile" class="attachment-file" data-upload-url="/upload/attachment" multiple)
+            br
+            br  
+            .progress.hide#progress
+              .progress-bar.progress-bar-primary
+            .alert.alert-danger.alert-dismissable.hide#error_message
+              strong   
+        .form-group
+          label.col-sm-2.control-label(for="content") 内容
+          .col-sm-10
+            textarea.form-control(rows="5" id="content" name="content" style="height:300px;" placeholder="请输入内容") #{article.content}   
+        .form-group
+          .col-sm-offset-2.col-sm-10
+            button.btn.btn-default(type="submit") 保存
+block pjs
+  script.
+    $(function () {
+      'use strict';
+      var $upload_button = $('.fileinput-button > input.attachment-file'),
+          $form = $('#new_article'),
+          $progress = $form.find('#progress'),          
+          $error_message = $form.find('#error_message');
+
+      $upload_button.fileupload({
+          url: $upload_button.data('upload-url'),
+          dataType: 'json',
+          change: function (e, data) {
+            $progress.removeClass('hide');
+            $error_message.addClass('hide');
+          },
+          drop: function (e, data) {
+            $progress.addClass('hide');
+          },
+          done: function (e, data) {
+              $progress.addClass('hide');
+              if(data.result.error === 0){
+                $form.find('#image-show').html($('<img/>').attr('src', data.result.url).addClass('img-thumbnail img-responsive').css({'height': '140px'}));
+                $form.find('#image_url').val(data.result.url);
+              }else{
+                $error_message.removeClass('hide').find('strong').html(data.result.message);
+              }              
+          },
+          progressall: function (e, data) {
+              var progress = parseInt(data.loaded / data.total * 100, 10);              
+              $form.find('#progress .progress-bar').css('width', progress + '%');
+          }
+      }).prop('disabled', !$.support.fileInput)
+          .parent().addClass($.support.fileInput ? undefined : 'disabled');
+
+      var editor = $('textarea[name="content"]').editor();
+    });

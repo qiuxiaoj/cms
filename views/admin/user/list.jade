@@ -1,0 +1,38 @@
+extends layout
+
+block main
+  .panel.panel-default
+    .panel-heading.clearfix
+      h3.panel-title 用户列表
+        
+    .panel-body.clearfix
+      a.btn.btn-primary.btn-sm.pull-right(href="/admin/user/new")
+        i.fa.fa-plus 
+        |新建用户
+      table.table.table-hover
+        thead
+          tr
+            th.col 昵称
+            th 登录名
+            th 账号类型
+            th 邮箱
+            th 更新时间
+            th #
+        tbody    
+          - each user in users
+            tr
+              td= user.name
+              td= user.loginname
+              td= user.is_admin ? '管理员' : '用户'
+              td= user.email
+              td= formatDatetime(user.updated_at)
+              td 
+                a.btn.btn-sm.btn-success(href="/admin/user/#{user._id}/edit") 
+                  i.fa.fa-edit  
+                  |编辑
+                - if(!user.is_admin)  
+                  a.btn.btn-sm.btn-warning.margin-sm(href="/admin/user/#{user._id}/delete") 
+                    i.fa.fa-trash-o  
+                    |删除              
+      .pull-right
+        !{createPagination(total, 15)}  

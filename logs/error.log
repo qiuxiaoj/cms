@@ -1,0 +1,176 @@
+[Sat Oct 26 2013 22:37:58 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:38:00 GMT+0800 (CST)] /admin/ad/update
+TypeError: Cannot call method 'replace' of undefined
+    at Filter.trim (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/validator/lib/filter.js:60:26)
+    at exports.update (/home/qiuxj/WorkSpace-Node/xjoy/controllers/advertise.js:31:40)
+    at callbacks (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/express/lib/router/index.js:161:37)
+    at exports.adminRequired (/home/qiuxj/WorkSpace-Node/xjoy/midderwares/auth.js:11:3)
+    at callbacks (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/express/lib/router/index.js:161:37)
+    at param (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/express/lib/router/index.js:135:11)
+    at pass (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/express/lib/router/index.js:142:5)
+    at Router._dispatch (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/express/lib/router/index.js:170:5)
+    at Object.router (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/express/lib/router/index.js:33:10)
+    at next (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/express/node_modules/connect/lib/proto.js:190:15)
+[Sat Oct 26 2013 22:38:00 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:38:06 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:38:08 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:38:11 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:38:14 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:38:16 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:38:26 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:38:27 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:38:31 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:38:33 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:38:45 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:38:48 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:39:52 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:40:00 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:40:02 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:40:10 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:41:14 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:41:41 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:41:43 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:41:45 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:41:46 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:41:51 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:41:53 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:41:53 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:41:54 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:41:57 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:42:32 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:42:35 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:42:35 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:42:38 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:42:39 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:42:41 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:42:44 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:42:45 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:42:48 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:42:52 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:43:00 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:44:02 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:44:40 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:49:32 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:49:57 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:50:10 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:57:08 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 22:59:19 GMT+0800 (CST)] /
+TypeError: /home/qiuxj/WorkSpace-Node/xjoy/views/index.jade:8
+    6|     .col-sm-3
+    7|       .panel.panel-default
+  > 8|         .panel-heading
+    9|           i.fa.fa-volume-up.margin-right-sm.text-red 
+    10|           |最新动态
+    11|           .pull-right
+
+Cannot read property 'length' of undefined
+    at Object.eval (eval at <anonymous> (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/jade/lib/jade.js:152:8), <anonymous>:44:31)
+    at Object.carousel_mixin (eval at <anonymous> (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/jade/lib/jade.js:152:8), <anonymous>:151:4)
+    at eval (eval at <anonymous> (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/jade/lib/jade.js:152:8), <anonymous>:520:16)
+    at /home/qiuxj/WorkSpace-Node/xjoy/node_modules/jade/lib/jade.js:153:35
+    at Object.exports.render (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/jade/lib/jade.js:197:10)
+    at Object.exports.renderFile (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/jade/lib/jade.js:233:18)
+    at View.exports.renderFile [as engine] (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/jade/lib/jade.js:218:21)
+    at View.render (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/express/lib/view.js:75:8)
+    at Function.app.render (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/express/lib/application.js:500:10)
+    at ServerResponse.res.render [as _render] (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/express/lib/response.js:755:7)
+[Sat Oct 26 2013 22:59:19 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 23:00:02 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 23:00:56 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 23:01:17 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 23:01:44 GMT+0800 (CST)] /
+Error
+    at new JS_Parse_Error (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/jade/node_modules/with/node_modules/uglify-js/lib/parse.js:196:18)
+    at js_error (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/jade/node_modules/with/node_modules/uglify-js/lib/parse.js:204:11)
+    at croak (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/jade/node_modules/with/node_modules/uglify-js/lib/parse.js:636:9)
+    at token_error (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/jade/node_modules/with/node_modules/uglify-js/lib/parse.js:644:9)
+    at unexpected (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/jade/node_modules/with/node_modules/uglify-js/lib/parse.js:650:9)
+    at expr_atom (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/jade/node_modules/with/node_modules/uglify-js/lib/parse.js:1131:9)
+    at maybe_unary (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/jade/node_modules/with/node_modules/uglify-js/lib/parse.js:1287:19)
+    at expr_ops (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/jade/node_modules/with/node_modules/uglify-js/lib/parse.js:1322:24)
+    at maybe_conditional (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/jade/node_modules/with/node_modules/uglify-js/lib/parse.js:1327:20)
+    at maybe_assign (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/jade/node_modules/with/node_modules/uglify-js/lib/parse.js:1351:20)
+[Sat Oct 26 2013 23:01:44 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 23:01:46 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 23:01:48 GMT+0800 (CST)] /
+Error
+    at new JS_Parse_Error (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/jade/node_modules/with/node_modules/uglify-js/lib/parse.js:196:18)
+    at js_error (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/jade/node_modules/with/node_modules/uglify-js/lib/parse.js:204:11)
+    at croak (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/jade/node_modules/with/node_modules/uglify-js/lib/parse.js:636:9)
+    at token_error (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/jade/node_modules/with/node_modules/uglify-js/lib/parse.js:644:9)
+    at unexpected (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/jade/node_modules/with/node_modules/uglify-js/lib/parse.js:650:9)
+    at expr_atom (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/jade/node_modules/with/node_modules/uglify-js/lib/parse.js:1131:9)
+    at maybe_unary (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/jade/node_modules/with/node_modules/uglify-js/lib/parse.js:1287:19)
+    at expr_ops (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/jade/node_modules/with/node_modules/uglify-js/lib/parse.js:1322:24)
+    at maybe_conditional (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/jade/node_modules/with/node_modules/uglify-js/lib/parse.js:1327:20)
+    at maybe_assign (/home/qiuxj/WorkSpace-Node/xjoy/node_modules/jade/node_modules/with/node_modules/uglify-js/lib/parse.js:1351:20)
+[Sat Oct 26 2013 23:01:48 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 23:02:03 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 23:02:21 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 23:02:43 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 23:05:14 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 23:05:49 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 23:06:29 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 23:06:59 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 23:07:27 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
+[Sat Oct 26 2013 23:07:41 GMT+0800 (CST)] /favicon.ico
+Error: ENOENT, open '/home/qiuxj/WorkSpace-Node/xjoy/public/images/favicon.ico'
