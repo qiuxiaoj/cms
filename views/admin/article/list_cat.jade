@@ -11,18 +11,16 @@ block main
       table.table.table-hover
         thead
           tr
+            th ID
             th 分类名
-            -//th 上级分类
-            -//th 顺序
             th 更新时间
             th #
         tbody    
           - each cat in article_cats
             tr
+              td= cat._id
               td
                 a(href="/admin/cat/#{cat._id}/list") #{cat.cat_name}
-              -//td #{cat.parent_id == 'root' ? '无' : cat.parent_id}
-              -//td= cat.sort
               td= formatDatetime(cat.updated_at) 
               td
                 a.btn.btn-sm.btn-success(href="/admin/art_cat/#{cat._id}/edit") 
