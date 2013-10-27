@@ -22,52 +22,44 @@ block content
     .panel-heading 
       |特价商品
       .pull-right
-        |更多
+        a(href="/goods/type/1")
+          |更多
     .panel-body
-      .row
-        .col-sm-3
-          .thumbnail
-            img(data-src="holder.js/300x200")
+      - each item in low_goods
+        .col-sm-3(style="margin-bottom: 18px;")
+          div
+            a.thumbnail(href="/goods/#{item._id}")
+              img.image-sm(src='#{item.image_url}')
             .caption
-              h3 标题
-        .col-sm-3
-          .thumbnail
-            img(data-src="holder.js/300x200")
-            .caption
-              h3 标题
-        .col-sm-3
-          .thumbnail
-            img(data-src="holder.js/300x200")
-            .caption
-              h3 标题
-        .col-sm-3
-          .thumbnail
-            img(data-src="holder.js/300x200")
-            .caption
-              h3 标题            
+              h5
+                a(href="/goods/#{item._id}") #{item.name}           
   .panel.panel-default.clearfix
     .panel-heading 
       |新品上市
       .pull-right
-        |更多
+        a(href="/goods/type/2")
+          |更多
     .panel-body
-      - each product in new_products
+      - each item in new_goods
         .col-sm-3(style="margin-bottom: 18px;")
-          .thumbnail
-            img(src='#{product.image_url}')
+          div
+            a.thumbnail(href="/goods/#{item._id}")
+              img.image-sm(src='#{item.image_url}')
             .caption
               h5
-                a(href="/article/#{product._id}") #{product.title}    
+                a(href="/goods/#{item._id}") #{item.name}    
   .panel.panel-default.clearfix
     .panel-heading 
       |热销推荐
       .pull-right
-        |更多
+        a(href="/goods/type/3")
+          |更多
     .panel-body
-      - each product in hot_products
+      - each item in hot_goods
         .col-sm-3(style="margin-bottom: 18px;")
-          .thumbnail            
-            img(src='#{product.image_url}')
+          div
+            a.thumbnail(href="/goods/#{item._id}")           
+              img.image-sm(src='#{item.image_url}')
             .caption
               h5
-                a(href="/article/#{product._id}") #{product.title}            
+                a(href="/goods/#{item._id}") #{item.name}            

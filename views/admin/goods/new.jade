@@ -2,23 +2,20 @@ extends layout
 
 block head
   include ../../fileupload
+  include ../../kindeditor
 
 block main
   .panel.panel-default
     .panel-heading
-      h3.panel-title 广告文章
+      h3.panel-title 新建产品
     .panel-body
-      form.form-horizontal(id="new_article" action="/admin/ad/update" method="post")
-        input(type="hidden" name="ad_id" value="#{ad._id}")
+      form.form-horizontal(id="new_goods" action="/admin/goods/create" method="post")
         .form-group
           label.col-sm-2.control-label(for="image_url") 图片
           .col-sm-3
             span#image-show
-              - if(ad.image_url != '')
-                img(src="#{ad.image_url}" class="img-thumbnail img-responsive")
-              -else
-                img(data-src="holder.js/210x70/text:尺寸:840X280" src="data:image/png;base64," class="img-thumbnail img-responsive")
-            input(type="hidden" id="image_url" name="image_url" value="#{ad.image_url}")
+              img(data-src="holder.js/200x200/text:尺寸:800X800" src="data:image/png;base64," class="img-thumbnail img-responsive")
+            input(type="hidden" id="image_url" name="image_url")
           .col-sm-7
             span.fileinput-button.btn.btn-primary
               i.glyphicon.glyphicon-upload
@@ -29,19 +26,25 @@ block main
             .progress.hide#progress
               .progress-bar.progress-bar-primary
             .alert.alert-danger.alert-dismissable.hide#error_message
-              strong 
+              strong
         .form-group
-          label.col-sm-2.control-label(for="title") 名称
+          label.col-sm-2.control-label(for="brand_id") 品牌
           .col-sm-10
-            input.form-control(type="text" id="title" name="title" value="#{ad.title}" placeholder="请输入名称")
+            select.form-control(id="brand_id" name="brand_id")
+              - each item in brand_list                 
+                option(value="#{item._id}")= item.name         
         .form-group
-          label.col-sm-2.control-label(for="link") 链接
+          label.col-sm-2.control-label(for="name") 名称
           .col-sm-10
-            input.form-control(type="text" id="link" name="link" value="#{ad.link}" placeholder="请输入链接")    
+            input.form-control(type="text" id="name" name="name" placeholder="请输入名称")
         .form-group
-          label.col-sm-2.control-label(for="desc") 描述
+          label.col-sm-2.control-label(for="desc") 产品描述
           .col-sm-10
-            textarea.form-control(rows="5" id="desc" name="desc" style="height:100px;" placeholder="请输入描述") #{ad.desc}
+            textarea.form-control(rows="5" id="desc" name="desc" style="height:100px;" placeholder="请输入描述")
+        .form-group
+          label.col-sm-2.control-label(for="content") 内容
+          .col-sm-10
+            textarea.form-control(rows="5" id="content" name="content" style="height:300px;" placeholder="请输入内容")
         .form-group
           .col-sm-offset-2.col-sm-10
             button.btn.btn-default(type="submit") 保存
@@ -50,7 +53,7 @@ block pjs
     $(function () {
       'use strict';
       var $upload_button = $('.fileinput-button > input.attachment-file'),
-          $form = $('#new_article'),
+          $form = $('#new_goods'),
           $progress = $form.find('#progress'),          
           $error_message = $form.find('#error_message');
 
@@ -67,7 +70,7 @@ block pjs
           done: function (e, data) {
               $progress.addClass('hide');
               if(data.result.error === 0){
-                $form.find('#image-show').html($('<img/>').attr('src', data.result.url).addClass('img-thumbnail img-responsive').css({'width': '210px','height': '70px'}));
+                $form.find('#image-show').html($('<img/>').attr('src', data.result.url).addClass('img-thumbnail img-responsive').css({'height': '200px','width': '200px'}));
                 $form.find('#image_url').val(data.result.url);
               }else{
                 $error_message.removeClass('hide').find('strong').html(data.result.message);
@@ -79,4 +82,5 @@ block pjs
           }
       }).prop('disabled', !$.support.fileInput)
           .parent().addClass($.support.fileInput ? undefined : 'disabled');
+      var editor = $('textarea[name="content"]').editor();    
     });

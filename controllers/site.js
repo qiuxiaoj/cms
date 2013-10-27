@@ -1,12 +1,16 @@
 var Article = require('../proxy').Article;
+var Goods = require('../proxy').Goods;
+var Brand = require('../proxy').Brand;
+var settings = require('../settings');
+var sanitize = require('validator').sanitize;
 var EventProxy = require('eventproxy');
 
 exports.index = function (req, res, next) {
-  var render = function (news, new_products, hot_products) {
-  	res.render('index', {news: news, new_products: new_products, hot_products: hot_products});
+  var render = function (news) {
+  	res.render('index', {news: news});
   };
 
-  var proxy = EventProxy.create('news', 'new_products', 'hot_products', render);
+  var proxy = EventProxy.create('news', render);
   proxy.fail(next);
 
   Article.paginate('525ab43127723bf64a000002', 1, 10, proxy.done(function(docs, total, err){
@@ -15,16 +19,61 @@ exports.index = function (req, res, next) {
     }
     proxy.emit('news', docs);
   }));
-  Article.paginate('526396e16ec7252238000002', 1, 12, proxy.done(function(docs, total, err){
+};
+
+exports.goods_detail = function(req, res, next){
+  var goods_id = sanitize(req.params.goods_id).trim();
+  Goods.getGoodsById(goods_id, function(err, doc){
     if (err) {
       return next(err);
     }
-    proxy.emit('new_products', docs);
-  }));
-  Article.paginate('526396f06ec7252238000003', 1, 12, proxy.done(function(docs, total, err){
+    res.render('goods/detail', {goods: doc});
+  });
+};
+
+exports.goods_by_brand = function(req, res, next){
+  var brand_id = sanitize(req.params.brand_id).trim();
+  var page = sanitize(req.query.page || '1').trim();
+
+  var render = function (goods_list, brand, total) {
+    res.render('goods/list', {goods_list: goods_list, brand: brand, total: total});
+  };
+
+  var proxy = EventProxy.create('goods_list', 'brand', 'total', render);
+  proxy.fail(next);
+
+  Goods.paginate({brand_id: brand_id}, page, 20, proxy.done(function(docs, total, err){
     if (err) {
       return next(err);
     }
-    proxy.emit('hot_products', docs);
+    proxy.emit('goods_list', docs);
+    proxy.emit('total', total);
   }));
-}
+  Brand.getBrandById(brand_id, proxy.done('brand'));
+};
+
+exports.goods_by_type = function(req, res, next){
+  var type = sanitize(req.params.type).trim();
+  var page = sanitize(req.query.page || '1').trim();
+  var type_label = "产品列表";
+  settings.goods.type.forEach(function(item){
+    if(item.id == type){
+      type_label = item.label;
+    }
+  });
+  
+  var render = function (goods_list, total) {
+    res.render('goods/list', {goods_list: goods_list, type_label: type_label, total: total});
+  };
+  
+  var proxy = EventProxy.create('goods_list', 'total', render);
+  proxy.fail(next);
+
+  Goods.paginate({type: type}, page, 20, proxy.done(function(docs, total, err){
+    if (err) {
+      return next(err);
+    }
+    proxy.emit('goods_list', docs);
+    proxy.emit('total', total);
+  }));
+};

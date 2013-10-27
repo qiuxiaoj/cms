@@ -1,0 +1,69 @@
+extends layout
+
+block main
+  .panel.panel-default
+    .panel-heading.clearfix
+      h3.panel-title 产品列表        
+    .panel-body.clearfix
+      |设为：      
+      .btn-group
+        button.btn.btn-default.btn-sm.dropdown-toggle(type="button" data-toggle="dropdown") 
+          |请选择 
+          span.caret
+        ul.dropdown-menu#set_type
+          - each t in settings.goods.type
+            li 
+              a(href="#top" data-remote="/admin/goods/update/#{t.id}")= t.label
+      a.btn.btn-primary.btn-sm.pull-right(href="/admin/goods/new")
+        i.fa.fa-plus 
+        |发布产品
+      table.table.table-hover#goods_list
+        thead
+          tr
+            th.col #
+            th 内容
+            td 类型
+            th #
+        tbody    
+          - each item in goods
+            tr
+              td
+                input(type="checkbox" id="goods_id" name="goods_id" value="#{item._id}")
+              td 
+                ul.media-list
+                  li.media
+                    a.pull-left
+                      img(src="#{item.image_url}" style="width:100px;height:100px;" class="media-object img-thumbnail img-responsive") 
+                    div.media-body
+                      h4.media-heading #{item.name}
+                      =item.desc
+              td
+                - each t in settings.goods.type
+                  - if(t.id == item.type)
+                    = t.label                               
+              td 
+                a.btn.btn-sm.btn-success(href="/admin/goods/#{item._id}/edit") 
+                  i.fa.fa-edit  
+                  |编辑
+                a.btn.btn-sm.btn-warning.margin-sm(href="/admin/goods/#{item._id}/delete") 
+                  i.fa.fa-trash-o  
+                  |删除              
+      .pull-right
+        !{createPagination(total, 15)} 
+block pjs
+  script.
+    $(function(){
+      $('ul#set_type > li > a').on('click', function(){
+        var $this = $(this),
+            $remote= $this.data('remote'),
+            $checked_item = $('table#goods_list').find('input:checkbox:checked');
+        if($checked_item.length == 0){alert('未选中任何产品');return;}    
+        var params = [];
+        $checked_item.each(function(idx, item){
+          params.push($(item).val());
+        }); 
+        $.post($remote, {items: params}, function(data){
+          if(data.success == 0){location.reload();};
+        });
+      });
+    }); 

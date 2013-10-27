@@ -6,19 +6,15 @@ block head
 block main
   .panel.panel-default
     .panel-heading
-      h3.panel-title 广告文章
+      h3.panel-title 新建品牌
     .panel-body
-      form.form-horizontal(id="new_article" action="/admin/ad/update" method="post")
-        input(type="hidden" name="ad_id" value="#{ad._id}")
+      form.form-horizontal(id="new_brand" action="/admin/brand/create" method="post")
         .form-group
           label.col-sm-2.control-label(for="image_url") 图片
           .col-sm-3
             span#image-show
-              - if(ad.image_url != '')
-                img(src="#{ad.image_url}" class="img-thumbnail img-responsive")
-              -else
-                img(data-src="holder.js/210x70/text:尺寸:840X280" src="data:image/png;base64," class="img-thumbnail img-responsive")
-            input(type="hidden" id="image_url" name="image_url" value="#{ad.image_url}")
+              img(data-src="holder.js/210x70" src="data:image/png;base64," class="img-thumbnail img-responsive")
+            input(type="hidden" id="image_url" name="image_url")
           .col-sm-7
             span.fileinput-button.btn.btn-primary
               i.glyphicon.glyphicon-upload
@@ -31,17 +27,13 @@ block main
             .alert.alert-danger.alert-dismissable.hide#error_message
               strong 
         .form-group
-          label.col-sm-2.control-label(for="title") 名称
+          label.col-sm-2.control-label(for="name") 名称
           .col-sm-10
-            input.form-control(type="text" id="title" name="title" value="#{ad.title}" placeholder="请输入名称")
-        .form-group
-          label.col-sm-2.control-label(for="link") 链接
-          .col-sm-10
-            input.form-control(type="text" id="link" name="link" value="#{ad.link}" placeholder="请输入链接")    
+            input.form-control(type="text" id="name" name="name" placeholder="请输入名称")  
         .form-group
           label.col-sm-2.control-label(for="desc") 描述
           .col-sm-10
-            textarea.form-control(rows="5" id="desc" name="desc" style="height:100px;" placeholder="请输入描述") #{ad.desc}
+            textarea.form-control(rows="5" id="desc" name="desc" style="height:100px;" placeholder="请输入描述")
         .form-group
           .col-sm-offset-2.col-sm-10
             button.btn.btn-default(type="submit") 保存
@@ -50,7 +42,7 @@ block pjs
     $(function () {
       'use strict';
       var $upload_button = $('.fileinput-button > input.attachment-file'),
-          $form = $('#new_article'),
+          $form = $('#new_brand'),
           $progress = $form.find('#progress'),          
           $error_message = $form.find('#error_message');
 

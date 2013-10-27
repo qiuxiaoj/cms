@@ -1,0 +1,41 @@
+extends layout
+
+block main
+  .panel.panel-default
+    .panel-heading.clearfix
+      h3.panel-title 品牌列表
+        
+    .panel-body.clearfix
+      a.btn.btn-primary.btn-sm.pull-right(href="/admin/brand/new")
+        i.fa.fa-plus 
+        |新建品牌
+      table.table.table-hover
+        thead
+          tr
+            th.col 内容
+            th #
+        tbody    
+          - each item in brands
+            tr
+              td 
+                ul.media-list
+                  li.media
+                    a.pull-left(href="/goods/brand/#{item._id}" target="_blank")
+                      img(src="#{item.image_url}" style="width:150px;height:50px;" class="media-object img-thumbnail img-responsive") 
+                    div.media-body
+                      h4.media-heading
+                        a(href="/goods/brand/#{item._id}" target="_blank") 
+                          #{item.name}
+                      =item.desc
+              td 
+                a.btn.btn-sm.btn-success(href="/admin/brand/#{item._id}/edit") 
+                  i.fa.fa-edit  
+                  |编辑
+                a.btn.btn-sm.btn-warning.margin-sm(href="/admin/brand/#{item._id}/delete") 
+                  i.fa.fa-trash-o  
+                  |删除
+                a.btn.btn-sm.btn-primary(href="/goods/brand/#{item._id}" target="_blank") 
+                  i.fa.fa-external-link
+                  |浏览                
+      .pull-right
+        !{createPagination(total, 15)}  

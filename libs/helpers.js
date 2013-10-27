@@ -2,6 +2,7 @@ var url = require('url');
 var qs = require('querystring');
 var pagination = require("node-pagination");
 var utils = require('./utils');
+var settings = require('../settings');
 
 /**
  * Helpers method
@@ -24,6 +25,7 @@ exports.helpers = function(name) {
     res.locals.stripScript = stripScript;
     res.locals.createPagination = createPagination(req);
     res.locals.text_cut = text_cut;
+    res.locals.settings = settings;
 
     if (typeof req.flash !== 'undefined') {
       res.locals.info = req.flash('info')

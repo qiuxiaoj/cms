@@ -6,14 +6,14 @@ block head
 block main
   .panel.panel-default
     .panel-heading
-      h3.panel-title 广告文章
+      h3.panel-title 新建广告
     .panel-body
       form.form-horizontal(id="new_article" action="/admin/ad/create" method="post")
         .form-group
           label.col-sm-2.control-label(for="image_url") 图片
           .col-sm-3
             span#image-show
-              img(data-src="holder.js/200x200" src="data:image/png;base64," class="img-thumbnail img-responsive")
+              img(data-src="holder.js/210x70/text:尺寸:840X280" src="data:image/png;base64," class="img-thumbnail img-responsive")
             input(type="hidden" id="image_url" name="image_url")
           .col-sm-7
             span.fileinput-button.btn.btn-primary
@@ -63,7 +63,7 @@ block pjs
           done: function (e, data) {
               $progress.addClass('hide');
               if(data.result.error === 0){
-                $form.find('#image-show').html($('<img/>').attr('src', data.result.url).addClass('img-thumbnail img-responsive').css({'height': '140px'}));
+                $form.find('#image-show').html($('<img/>').attr('src', data.result.url).addClass('img-thumbnail img-responsive').css({'width': '210px','height': '70px'}));
                 $form.find('#image_url').val(data.result.url);
               }else{
                 $error_message.removeClass('hide').find('strong').html(data.result.message);

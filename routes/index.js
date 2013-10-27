@@ -7,10 +7,12 @@ var admin = require('../controllers/admin');
 var article = require('../controllers/article');
 var menu = require('../controllers/menu');
 var advertise = require('../controllers/advertise');
+var brand = require('../controllers/brand');
+var goods = require('../controllers/goods');
 var upload = require('../controllers/upload');
 
 module.exports = function (app) {
-	app.get('/', macro.cate_list, macro.menu, macro.advs, site.index);
+	app.get('/', macro.home_goods, macro.menu, macro.advs, site.index);
 	app.get('/signin', sign.showLogin);
 	app.post('/signin', sign.login);
 	app.get('/signout', sign.signout);
@@ -52,6 +54,20 @@ module.exports = function (app) {
 	app.post('/admin/ad/update', auth.adminRequired, advertise.update);
 	app.get('/admin/ad/:ad_id/delete', auth.adminRequired, advertise.delete);
 
+	app.get('/admin/brand/list', auth.adminRequired, brand.list);
+	app.get('/admin/brand/new', auth.adminRequired, brand.new);
+	app.post('/admin/brand/create', auth.adminRequired, brand.create);
+	app.get('/admin/brand/:brand_id/edit', auth.adminRequired, brand.edit);
+	app.post('/admin/brand/update', auth.adminRequired, brand.update);
+	app.get('/admin/brand/:brand_id/delete', auth.adminRequired, brand.delete);
+
+	app.get('/admin/goods/list', auth.adminRequired, goods.list);
+	app.get('/admin/goods/new', auth.adminRequired, macro.brand_list, goods.new);
+	app.post('/admin/goods/create', auth.adminRequired, goods.create);
+	app.get('/admin/goods/:goods_id/edit', auth.adminRequired, macro.brand_list, goods.edit);
+	app.post('/admin/goods/update', auth.adminRequired, goods.update);
+	app.post('/admin/goods/update/:type', auth.adminRequired, goods.update_type);
+	app.get('/admin/goods/:goods_id/delete', auth.adminRequired, goods.delete);
 
 	// upload
 	app.post('/upload/attachment', upload.uploadAttachment);	
@@ -60,4 +76,8 @@ module.exports = function (app) {
 
 	app.get('/categroy/:id', macro.menu, article.cate_index);
 	app.get('/article/:id', macro.menu, article.article_detail);
+
+	app.get('/goods/:goods_id', macro.menu, site.goods_detail);
+	app.get('/goods/type/:type', macro.menu, site.goods_by_type);
+	app.get('/goods/brand/:brand_id', macro.menu, site.goods_by_brand);
 }

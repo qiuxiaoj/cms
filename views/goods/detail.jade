@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+  .panel.panel-default
+    .panel-body
+      .row
+        .col-sm-4
+          .thumbnail
+            img.img-responsive.image-sm(src='#{goods.image_url}')
+        .col-sm-8
+          h3= goods.name 
+          p= goods.desc
+      hr    
+      .panel.panel-default
+        .panel-body.text-overflow        
+          !{goods.content}

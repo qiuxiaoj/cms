@@ -7,5 +7,8 @@ module.exports = {
   upload: {
   	dir: path.join(__dirname, 'public', 'upload')
   }, 
-  host: 'localhost'
+  host: 'localhost',
+  goods: {
+  	type: [{id: 1, label: '特价商品'}, {id: 2, label: '新品上市'}, {id: 3, label: '热销商品'}]
+  }
 };

@@ -1,9 +1,9 @@
 mixin carousel(advs)
   .carousel.slide#home-carousel(data-ride="carousel")
     ol.carousel-indicators
-      li.active(data-target="#home-carousel" data-slide-to="0")
-      li(data-target="#home-carousel" data-slide-to="1")
-      li(data-target="#home-carousel" data-slide-to="2")
+      - advs.forEach(function(ad, idx){
+        li(data-target="#home-carousel" data-slide-to="#{idx}" class="#{idx == 0 ? 'active': ''}")
+      - })  
     .carousel-inner
       - advs.forEach(function(ad, idx){     
         .item(class="#{idx == 0 ? 'active': ''}") 
@@ -17,4 +17,4 @@ mixin carousel(advs)
     a.left.carousel-control(href="#home-carousel" data-slide="prev")
       span.glyphicon.glyphicon-chevron-left
     a.right.carousel-control(href="#home-carousel" data-slide="next")
-      span.glyphicon.glyphicon-chevron-right    
+      span.glyphicon.glyphicon-chevron-right

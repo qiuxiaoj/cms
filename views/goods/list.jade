@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+  .panel.panel-default
+    .panel-heading 
+      =type_label ? type_label : brand.name
+    .panel-body
+      - each item in goods_list
+        .col-sm-3(style="margin-bottom: 18px;")
+          div
+            a.thumbnail(href="/goods/#{item._id}")
+              img.image-sm(src='#{item.image_url}')
+            .caption
+              h5
+                a(href="/goods/#{item._id}") #{item.name}  
