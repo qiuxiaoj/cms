@@ -3,10 +3,12 @@
  */
 exports.adminRequired = function (req, res, next) {
   if (!req.session.user) {
-    return res.render('notify/notify', {error: '请使用管理员账户登陆。'});
+    //return res.render('notify/notify', {error: '请使用管理员账户登陆。'});
+    return res.redirect('signin');
   }
   if (!req.session.user.is_admin) {
-    return res.render('notify/notify', {error: '管理员才能访问。'});
+    //return res.render('notify/notify', {error: '管理员才能访问。'});
+    return res.redirect('signin');
   }
   next();
 };
@@ -26,8 +28,8 @@ exports.userRequired = function (req, res, next) {
  */
 exports.signinRequired = function (req, res, next) {
   if (!req.session.user) {
-    res.render('notify/notify', {error: '未登入用户不能发布话题。'});
-    return;
+    //res.render('notify/notify', {error: '未登入用户不能发布话题。'});
+    return res.redirect('signin');
   }
   next();
 };

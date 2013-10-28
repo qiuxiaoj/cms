@@ -5,19 +5,41 @@ html
     include ../head
     link(rel='stylesheet', href='/stylesheets/signin.css')
   body
-    .container         
-      form.form-signin(action="/signin" method="post")
-        h2.form-signin-heading
-          |系统登录
-        input.form-control(type="text" name="name" placeholder="用户名" autofocus)
-        input.form-control(type="password" name="pass" placeholder="密码")
-        label.checkbox
-          input(type="checkbox" name="rememberme" value="1") 
-          |自动登录
-        - if(locals.error)
-          .alert.alert-danger.alert-dismissable
-            button.close(type="button" data-dismiss="alert" aria-hidden="true")
-              &times;
-            strong #{error}  
-        button.btn.btn-lg.btn-primary.btn-block(type="submit") 
-          |登录 
+    .navbar
+      .container
+        .col-sm-2.navbar-header
+          .navbar-brand
+            img(src="/images/logo.png" width="80%")
+          button.navbar-toggle(data-toggle="collapse" data-target="#top-nav")
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+    .main
+      .container
+        .row
+          .col-sm-offset-6.col-sm-6
+            div(id='login-panel' style="max-width:350px; margin:0 auto;padding: 12% 0;")
+              .panel.panel-default 
+                .panel-heading
+                  h3
+                    |用户登录
+                .panel-body
+                  form(action="/signin" method="post")
+                    .form-group
+                      input.form-control(type="text" name="name" placeholder="用户名" autofocus)
+                    .form-group
+                      input.form-control(type="password" name="pass" placeholder="密码")
+                    .form-group
+                      label.checkbox
+                        input(type="checkbox" name="rememberme" value="1") 
+                        |自动登录
+                      - if(locals.error)
+                        .alert.alert-danger.alert-dismissable
+                          button.close(type="button" data-dismiss="alert" aria-hidden="true")
+                            &times;
+                          strong #{error}  
+                    button.btn.btn-lg.btn-success.btn-block(type="submit") 
+                      |登录
+    br                  
+    include ../footer                   

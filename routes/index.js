@@ -12,10 +12,10 @@ var goods = require('../controllers/goods');
 var upload = require('../controllers/upload');
 
 module.exports = function (app) {
-	app.get('/', macro.home_goods, macro.menu, macro.advs, site.index);
+	app.get('/', auth.signinRequired, macro.home_goods, macro.menu, macro.advs, site.index);
 	app.get('/signin', sign.showLogin);
 	app.post('/signin', sign.login);
-	app.get('/signout', sign.signout);
+	app.get('/signout', auth.signinRequired, sign.signout);
 	app.get('/admin/index', auth.adminRequired, admin.index);
 
 	app.get('/admin/art_cat/new', auth.adminRequired, article.new_cat);
@@ -70,14 +70,14 @@ module.exports = function (app) {
 	app.get('/admin/goods/:goods_id/delete', auth.adminRequired, goods.delete);
 
 	// upload
-	app.post('/upload/attachment', upload.uploadAttachment);	
+	app.post('/upload/attachment', auth.signinRequired, upload.uploadAttachment);	
 	
 	app.get('/system/init', user.createAdmin);
 
-	app.get('/categroy/:id', macro.menu, article.cate_index);
-	app.get('/article/:id', macro.menu, article.article_detail);
+	app.get('/categroy/:id', auth.signinRequired, macro.menu, article.cate_index);
+	app.get('/article/:id', auth.signinRequired, macro.menu, article.article_detail);
 
-	app.get('/goods/:goods_id', macro.menu, site.goods_detail);
-	app.get('/goods/type/:type', macro.menu, site.goods_by_type);
-	app.get('/goods/brand/:brand_id', macro.menu, site.goods_by_brand);
+	app.get('/goods/:goods_id', auth.signinRequired, macro.menu, site.goods_detail);
+	app.get('/goods/type/:type', auth.signinRequired, macro.menu, site.goods_by_type);
+	app.get('/goods/brand/:brand_id', auth.signinRequired, macro.menu, site.goods_by_brand);
 }

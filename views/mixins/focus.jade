@@ -6,11 +6,14 @@ mixin carousel(advs)
       - })  
     .carousel-inner
       - advs.forEach(function(ad, idx){     
-        .item(class="#{idx == 0 ? 'active': ''}") 
-          img.img-responsive(src="#{ad.image_url}" style="width: 850; height: 280px;")
+        .item(class="#{idx == 0 ? 'active': ''}")
+          a(href="#{ad.link}") 
+            img.img-responsive(src="#{ad.image_url}" style="width: 850; height: 280px;")
           div.carousel-caption
             - if (ad.title != '')
-              h3= ad.title
+              h3
+                a(href="#{ad.link}")
+                  = ad.title
             - if (ad.desc != '')
               p= ad.desc 
       - })          
