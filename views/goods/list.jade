@@ -1,6 +1,13 @@
 extends ../layout
 
 block content
+  - if(brand)
+    p
+      .btn-group.btn-group-justified
+        a.btn.btn-default(href="/goods/brand/#{brand._id}") 所有
+        - each tag in settings.goods.tag
+          - each t in tag.tags
+            a.btn.btn-default(href="/goods/brand/#{brand._id}/#{tag.k}-#{t.k}") #{t.v}               
   .panel.panel-default
     .panel-heading 
       =type_label ? type_label : brand.name

@@ -24,7 +24,7 @@ exports.showLogin = function (req, res) {
   if (req.session.user) {
   	res.redirect(req.session.user.is_admin ? '/admin/index' : '/');
   }	
-  res.render('sign/signin', {title: '系统认证'});
+  res.render('sign/signin');
 };
 
 exports.login = function (req, res, next) {
@@ -92,10 +92,8 @@ exports.auth_user = function (req, res, next) {
       if (user) {
 	      req.session.user = user;
 	      res.locals.current_user = req.session.user;
-	      return next();
-      } else {
-        return next();
       }
+      return next();
     });
   }
 };

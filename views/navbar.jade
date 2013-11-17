@@ -1,5 +1,17 @@
-h3
-  img.img-rounded(src="/images/logo.png" alt="华盛行")
+.row
+  .col-sm-8
+    h5
+      img.img-rounded(src="/images/logo.png" alt="#{title}")
+  .col-sm-4    
+    .padding-top-sm.clearfix
+      .pull-right
+        - if(current_user.is_admin)
+          a.btn.btn-default.btn-xs.margin-right-sm(href="/admin/index")
+            i.glyphicon.glyphicon-globe
+            |管理网站
+        a.btn.btn-default.btn-xs(href="/signout")
+          i.glyphicon.glyphicon-log-out
+          |注销 
 .navbar.navbar-default
   .navbar-header
     button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-collapse")

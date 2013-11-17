@@ -9,6 +9,11 @@ module.exports = {
   }, 
   host: 'localhost',
   goods: {
-  	type: [{id: 1, label: '特价商品'}, {id: 2, label: '新品上市'}, {id: 3, label: '热销商品'}]
+  	type: [{id: 1, label: '特价商品'}, {id: 2, label: '新品上市'}, {id: 3, label: '热销商品'}],
+    tag: [{
+      k: 'a', 
+      v: '款式',
+      tags: [{k: '1', v: '男款'}, {k: '2', v: '女款'}]
+    }]
   }
 };

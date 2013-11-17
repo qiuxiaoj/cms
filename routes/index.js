@@ -80,4 +80,5 @@ module.exports = function (app) {
 	app.get('/goods/:goods_id', auth.signinRequired, macro.menu, site.goods_detail);
 	app.get('/goods/type/:type', auth.signinRequired, macro.menu, site.goods_by_type);
 	app.get('/goods/brand/:brand_id', auth.signinRequired, macro.menu, site.goods_by_brand);
+	app.get('/goods/brand/:brand_id/:tag', auth.signinRequired, macro.menu, site.goods_by_brand);
 }

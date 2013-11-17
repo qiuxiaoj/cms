@@ -12,7 +12,9 @@ exports.create = function(req, res, next){
   var content = req.body.content
   var image_url = req.body.image_url
   var brand_id = sanitize(req.body.brand_id).trim();
-  Goods.newAndSave(name, desc, content, image_url, brand_id, function(err, cat){
+  var tag = req.body.tags || '';
+  if(tag){tag = tag.join(',')};
+  Goods.newAndSave(name, desc, content, image_url, brand_id, tag, function(err, cat){
   	if (err) {
       return next(err);
     }
@@ -31,10 +33,12 @@ exports.update = function(req, res, next){
   var goods_id = sanitize(req.body.goods_id).trim();
   var name = sanitize(req.body.name).trim();
   var desc = req.body.desc;
-  var content = req.body.content
-  var image_url = req.body.image_url
-  var brand_id = sanitize(req.body.brand_id).trim(); 
-  Goods.update(goods_id, name, desc, content, image_url, brand_id, true, function(err, num, raw){
+  var content = req.body.content;
+  var image_url = req.body.image_url;
+  var brand_id = sanitize(req.body.brand_id).trim();
+  var tag = req.body.tags || '';
+  if(tag){tag = tag.join(',')};
+  Goods.update(goods_id, name, desc, content, image_url, brand_id, true, tag, function(err, num, raw){
     if (err) {
       return next(err);
     }
@@ -65,7 +69,8 @@ exports.delete = function(req, res, next){
 
 exports.list = function(req, res, next){
   var page = sanitize(req.query.page || '1').trim();
-  var query = req.params.brand_id ? {brand_id: req.params.brand_id} : {};
+  var query = {};
+  if(req.params.brand_id) query.brand_id = req.params.brand_id;
   var render = function (goods, total) {
     res.render('admin/goods/list', {goods: goods, total: total});
   };

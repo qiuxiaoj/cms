@@ -22,7 +22,7 @@ block main
           tr
             th.col(width="5%") #
             th 内容
-            td(width="15%") 类型
+            th(width="15%") 类型
             th(width="20%") #
         tbody    
           - each item in goods
@@ -36,7 +36,7 @@ block main
                       img(src="#{item.image_url}" style="width:100px;height:100px;" class="media-object img-thumbnail img-responsive") 
                     div.media-body
                       h4.media-heading #{item.name}
-                      =item.desc
+                      = text_cut(item.desc, 150)
               td
                 - each t in settings.goods.type
                   - if(t.id == item.type)

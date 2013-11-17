@@ -32,7 +32,15 @@ block main
           .col-sm-10
             select.form-control(id="brand_id" name="brand_id")
               - each item in brand_list                 
-                option(value="#{item._id}")= item.name         
+                option(value="#{item._id}")= item.name
+        - each tag in settings.goods.tag
+          .form-group
+            label.col-sm-2.control-label(for="brand_id") #{tag.v}
+            .col-sm-10
+              - each t in tag.tags
+                lable.radio-inline                  
+                  input(type="radio" name="tags" value="#{tag.k}-#{t.k}")
+                  |#{t.v}                  
         .form-group
           label.col-sm-2.control-label(for="name") 名称
           .col-sm-10

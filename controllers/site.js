@@ -34,6 +34,9 @@ exports.goods_detail = function(req, res, next){
 exports.goods_by_brand = function(req, res, next){
   var brand_id = sanitize(req.params.brand_id).trim();
   var page = sanitize(req.query.page || '1').trim();
+  var query = {brand_id: brand_id};
+
+  if(req.params.tag) query.tag = req.params.tag; 
 
   var render = function (goods_list, brand, total) {
     res.render('goods/list', {goods_list: goods_list, brand: brand, total: total});
@@ -42,7 +45,7 @@ exports.goods_by_brand = function(req, res, next){
   var proxy = EventProxy.create('goods_list', 'brand', 'total', render);
   proxy.fail(next);
 
-  Goods.paginate({brand_id: brand_id}, page, 20, proxy.done(function(docs, total, err){
+  Goods.paginate(query, page, 20, proxy.done(function(docs, total, err){
     if (err) {
       return next(err);
     }
